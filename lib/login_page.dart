@@ -10,7 +10,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool obs = true;
-  String user = "";
+  final _emailController = TextEditingController();
   void onValueChange(){
     setState(() {});
   }
@@ -39,8 +39,9 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 40,
             ),
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              controller: _emailController,
+              decoration: const InputDecoration(
                 labelText: 'Email',
                 hintText: 'NamaAnda@gmail.com',
               ),
@@ -79,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                       context,
                       MaterialPageRoute(
                       builder: (context) => HomePage(
-                        username: user,
+                        username: _emailController.text,
                       ),
                       ),
                       );

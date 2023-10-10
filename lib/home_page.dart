@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                         height: 30,
                       ),
                       Text(
-                        "Hello, Bitna Putri",
+                        'Hello, ${widget.username}',
                         style: TextStyle(
                           color: Colors.amber[200],
                           fontWeight: FontWeight.bold,
