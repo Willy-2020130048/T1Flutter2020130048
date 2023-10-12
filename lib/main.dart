@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:t1_2020130048/home_page.dart';
 import 'package:t1_2020130048/login_page.dart';
+//import 'package:t1_2020130048/home_page.dart';
 
 void main() {
   runApp(const MyApp());

@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: <Widget>[
             const Expanded(
-              flex: 2,
+              flex: 1,
               child: SizedBox(),
             ),
             Center(
@@ -36,29 +36,48 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 40,
+            const Expanded(
+              flex: 1,
+              child: SizedBox(),
             ),
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                hintText: 'NamaAnda@gmail.com',
+            Expanded(
+              flex: 8,
+              child: DefaultTabController(
+                    length: 2,
+                    child: Column(
+                      children: [
+              const TabBar(
+                tabs: [
+                  Tab(text: 'Login'),
+                  Tab(text: 'Register'),
+                ],
               ),
-            ),
-            TextFormField(
-              obscureText: obs,
-              decoration: InputDecoration(
-                labelText: 'Password',
-                hintText: 'Password Anda',
-                suffix: IconButton(
-                  onPressed: (){
-                    obs = !obs;
-                    onValueChange();
-                  },
-                  icon: const Icon(Icons.remove_red_eye),
-                ),
-                counter: Text(
+              Expanded(
+                flex: 8,
+                child: TabBarView(
+                  children: [
+                    Column(
+                      children: [
+                        TextField(
+                          controller: _emailController,
+                          decoration: const InputDecoration(
+                         labelText: 'Email',
+                          hintText: 'NamaAnda@gmail.com',
+                          ),
+                        ),
+                        TextFormField(
+                          obscureText: obs,
+                          decoration: InputDecoration(
+                          labelText: 'Password',
+                          hintText: 'Password Anda',
+                          suffix: IconButton(
+                          onPressed: (){
+                            obs = !obs;
+                             onValueChange();
+                          },
+                          icon: const Icon(Icons.remove_red_eye),
+                          ),
+                  counter: Text(
                   "Forgot Password",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
@@ -67,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            const SizedBox(
+                    const SizedBox(
               height: 40,
             ),
             Row(
@@ -113,9 +132,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ],
             ),
-            const Expanded(
-              flex: 4,
-              child: SizedBox(),
+                      ],
+                    ),
+                    const Center(child: Text('Register Tab')),
+                  ],
+                ),
+              ),
+                      ],
+                    ),
+                  ),
             ),
             Center(
               child: RichText(
